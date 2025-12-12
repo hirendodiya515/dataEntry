@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { db } from '../lib/firebase';
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
 import {
-    BarChart, Bar, LineChart, Line, AreaChart, Area, ComposedChart,
+    Bar, Line, Area, ComposedChart,
     ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-    ResponsiveContainer, ReferenceLine, ZAxis
+    ResponsiveContainer, ZAxis
 } from 'recharts';
 import {
     Settings, BarChart2, TrendingUp, PieChart, Activity,

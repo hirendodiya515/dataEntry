@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { UserPlus, Trash2, Shield, ShieldAlert, ShieldCheck } from 'lucide-react';
-import { collection, getDocs, doc, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, deleteDoc, query } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useToast } from '../contexts/ToastContext';
 import { useAuth } from '../contexts/AuthContext';
