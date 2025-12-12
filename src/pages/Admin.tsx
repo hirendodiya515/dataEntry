@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { UserPlus, Trash2, Shield, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { collection, getDocs, doc, updateDoc, deleteDoc, query } from 'firebase/firestore';
 import { db } from '../lib/firebase';
@@ -42,7 +43,7 @@ export default function Admin() {
         try {
             const userRef = doc(db, 'users', userId);
             await updateDoc(userRef, { role: newRole });
-            setUsers(prev => prev.map(u => u.id === userId ? { ...u, role: newRole } : u));
+            setUsers((prev: any) => prev.map((u: any) => u.id === userId ? { ...u, role: newRole } : u));
             showToast(`User role updated to ${newRole}`, "success");
         } catch (error) {
             console.error("Error updating role:", error);
@@ -60,7 +61,7 @@ export default function Admin() {
 
         try {
             await deleteDoc(doc(db, 'users', userId));
-            setUsers(prev => prev.filter(u => u.id !== userId));
+            setUsers((prev: any) => prev.filter((u: any) => u.id !== userId));
             showToast("User profile deleted", "success");
         } catch (error) {
             console.error("Error deleting user:", error);
@@ -112,7 +113,7 @@ export default function Admin() {
                         {users.length === 0 ? (
                             <div className="text-center py-8 text-slate-500">No users found.</div>
                         ) : (
-                            users.map((user) => (
+                            users.map((user: any) => (
                                 <div key={user.id} className="flex flex-col md:flex-row md:items-center justify-between p-4 rounded-xl bg-white/30 border border-white/40 gap-4 transition-all hover:bg-white/50">
                                     <div className="flex items-center gap-4">
                                         <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-sm ${user.role === 'admin' ? 'bg-red-100 text-red-600' :
